@@ -180,12 +180,6 @@ namespace QRZ
                 {
                     if (call.Length > 0) url = url + ";callsign=" + call;
                     qrzstrm = wc.OpenRead(url);
-                    //var settings = new XmlReaderSettings();
-                    //settings.XmlResolver = ;
-                    //XmlReader xMLReader = XmlReader.Create(url,settings);
-                    //string xml = xMLReader.ReadContentAsString();
-                    //_ = QRZData.ReadXml(xMLReader);
-                    //_ = QRZData.ReadXml(xml);
                     if (qrzstrm != null)
                     {
                         _ = QRZData.ReadXml(qrzstrm, XmlReadMode.InferSchema);
@@ -206,7 +200,6 @@ namespace QRZ
                     --stackcount;
                     return false;
                 }
-                //xMLReader.Dispose();
                 if (!QRZData.Tables.Contains("QRZDatabase"))
                 {
                     //MessageBox.Show("Error: failed to receive QRZDatabase object", "XML Server Error");
