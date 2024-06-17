@@ -15,8 +15,8 @@ namespace QRZ
                 QRZ qrz = new QRZ(args[0], args[1], null);
                 if (qrz.isOnline == false)
                 {
-                    Console.WriteLine("Unable to connect to QRZ...check name/passwd");
-                    return 1;
+                    Console.WriteLine("Unable to connect to QRZ...");
+                    return 0; // we still return 0 so the script can continu
                 }
                 if (qrz.GetCallsign(args[2], out bool cached))
                 {
@@ -33,7 +33,7 @@ namespace QRZ
             }
             else
             {
-                Console.WriteLine(value: "QRZ Version 1.0 by W9MDB");
+                Console.WriteLine(value: "QRZ Version 1.0.1 by W9MDB");
                 Console.WriteLine(value: "Expected 3 arguments: login passwd callsign");
                 Console.Write(value: "Received " + args.Length + " arguments:");
                 for (int i = 0; i < args.Length; ++i) Console.Write(" " + args[i]);

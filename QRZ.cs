@@ -47,6 +47,7 @@ namespace QRZ
                 //CacheLoad(cacheFileName);
             }
             urlConnect = server + "?username=" + username + ";password=" + password;
+            
             bool result = Connect(urlConnect);
             if (result == false)
             {
