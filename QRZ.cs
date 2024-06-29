@@ -30,7 +30,7 @@ namespace QRZ
         readonly string qrzerror = Environment.ExpandEnvironmentVariables("%TEMP%\\qrzerror.txt");
         readonly string w3lpl_bad = Environment.ExpandEnvironmentVariables("%TEMP%\\w3lpl_bad.txt");
 
-        public QRZ(string username, string password, string cacheFileName)
+        public QRZ(string username, string password, string? cacheFileName)
         {
             //StreamReader aliasFile = new StreamReader("C:/Temp/qrzalias.txt");
             //string s;
@@ -46,6 +46,7 @@ namespace QRZ
             {
                 //CacheLoad(cacheFileName);
             }
+            password = System.Net.WebUtility.UrlEncode(password);
             urlConnect = server + "?username=" + username + ";password=" + password;
             
             bool result = Connect(urlConnect);
@@ -173,7 +174,7 @@ namespace QRZ
                 Console.WriteLine("CallQRZ is recursing...should not see this!!!");
             }
             email = "none";
-            Stream qrzstrm = null;
+            Stream? qrzstrm = null;
             try
             {
                 QRZData.Clear();

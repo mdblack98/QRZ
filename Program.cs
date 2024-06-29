@@ -33,7 +33,7 @@ namespace QRZ
             }
             else
             {
-                Console.WriteLine(value: "QRZ Version 1.0.1 by W9MDB");
+                Console.WriteLine(value: "QRZ Version 1.0.2 by W9MDB");
                 Console.WriteLine(value: "Expected 3 arguments: login passwd callsign");
                 Console.Write(value: "Received " + args.Length + " arguments:");
                 for (int i = 0; i < args.Length; ++i) Console.Write(" " + args[i]);
